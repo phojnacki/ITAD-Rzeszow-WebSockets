@@ -1,0 +1,19 @@
+<div *ngIf="socket == null">
+  <form (submit)="connect()">
+    <input [(ngModel)]="nick" name="nick" placeholder="Nick">
+    <button id="connectButton" type="submit">Connect</button>
+  </form>
+</div>
+<div  *ngIf="thx">
+  <h1>Dziękuję za uwagę.</h1>
+  <h1>Życzę owocnej konferencji ITAD Rzeszów.</h1>
+  <h1>Przemysław Hojnacki</h1>
+  <h2>przemyslaw.hojnacki@gmail.com</h2>
+  <h2><a href="https://twitter.com/przemeck">https://twitter.com/przemeck</a></h2>
+</div>
+<div *ngIf="socket && !thx">
+  <img [src]="'../../css/'+color+'.png'" width="106px" height="107px" style="position: absolute;" [style.transform]="safePosition"/>
+  <div *ngIf="id">Big Screen ID: <b>{{id}}</b></div>
+  <div *ngIf="id">Punkty: <b>{{points}}</b></div>
+</div>
+

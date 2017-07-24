@@ -1,0 +1,23 @@
+<button (click)="startGame()">Start</button>
+<button (click)="stopGame()">Stop</button>
+<button (click)="thx()">Thx</button>
+<!--<div *ngIf="gameStarted" style="-->
+    <!--position:absolute;-->
+    <!--top:0; right:0; bottom:0; margin: 0;left:0; width: 100%; height: 100%;-->
+    <!--background: url('../../css/bg.jpg') no-repeat center; z-index: -999"></div>-->
+<div *ngFor="let bubble of bubbles" [style.transform]="bubble.translation" style="width:106px; height:127px">
+<img [src]="'../../css/'+bubble.color+'.png'" width="106px" height="107px" />
+<h2 style="margin: 0px">{{bubble.id}}</h2>
+</div>
+<div *ngIf="currentLeaders && !hallOfFame" style="position: absolute; top: 100px; left: 10px;">
+  <h1><b>Czołówka:</b></h1>
+  <div *ngFor="let leader of currentLeaders">
+    <h1>{{leader.points}} pkt - {{leader.id}}</h1>
+  </div>
+</div>
+<div *ngIf="hallOfFame" style="position: absolute; top: 100px; left: 10px;">
+  <h1><b>Wyniki:</b></h1>
+  <div *ngFor="let player of hallOfFame">
+    <h1>{{player.points}} pkt - {{player.id}}</h1>
+  </div>
+</div>
